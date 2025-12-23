@@ -1,0 +1,81 @@
+[Adblock Plus 2.0]
+! Title: My Personal DNS Allowlist (2025)
+! Description: Optimized for Gentoo/Linux, OnePlus 13, Kuro Games & Yostar
+! Note: Blocks OnePlus/MS telemetry (omes-sec, aria) but allows updates/gaming.
+
+! --- GAMING FIXES: Kuro Game (Punishing: Gray Raven / Wuthering Waves) ---
+! Notwendig für Downloads & CDN-Zuweisung via Tencent Cloud
+@@||kurogame.com^$important
+@@||kurogame.xyz^$important
+@@||kurogame.net^$important
+@@||qcloud.com^$important
+@@||myqcloud.com^$important
+@@||qcloudcdn.com^$important
+@@||qcloud-sg-datareceiver.kurogame.xyz^$important
+@@||gdtimg.com^$important
+@@||tpns.tencent.com^$important
+
+! --- GAMING FIXES: Yostar (Azur Lane / Arknights) ---
+! Diese Spiele benötigen Alibaba Cloud für Login/Assets
+@@||aliyuncs.com^$important
+@@||alibabacloud.com^$important
+@@||yo-star.com^$important
+
+! --- DEVICE FIXES: OnePlus / Oppo ---
+! Erlaubt System-Downloads (HeyTapDL), Telemetrie bleibt geblockt.
+@@||heytapdl.com^$important
+@@||heytap.com^$important
+@@||oppomobile.com^$important
+
+! --- INFRASTRUCTURE: Cloud & CDNs ---
+! Wichtig, da viele Blocklisten diese Hoster pauschal sperren
+@@||amazonaws.com^$important
+@@||cloudfront.net^$important
+@@||akamaihd.net^$important
+@@||akamaized.net^$important
+@@||cdn.cloudflare.net^$important
+@@||cdnjs.cloudflare.com^$important
+@@||fastly.net^$important
+@@||b-cdn.net^$important
+
+! --- GOOGLE & ANDROID CORE ---
+@@||android.clients.google.com^$important
+@@||clients1.google.com^$important
+@@||clients2.google.com^$important
+@@||clients3.google.com^$important
+@@||googleapis.com^$important
+@@||gstatic.com^$important
+@@||redirector.googlevideo.com^$important
+@@||manifest.googlevideo.com^$important
+@@||connectivitycheck.gstatic.com^$important
+
+! --- GAMING GENERAL (Xbox, Unity, Epic) ---
+@@||cdp.cloud.unity3d.com^$important
+@@||config.uca.cloud.unity3d.com^$important
+@@||xbox.ipv6.microsoft.com^$important
+@@||title.auth.xboxlive.com^$important
+@@||device.auth.xboxlive.com^$important
+@@||assets.unrealengine.com^$important
+@@||epicgames.com^$important
+
+! --- TOOLS & SOCIAL ---
+@@||whatsapp.net^$important
+@@||whatsapp.com^$important
+@@||github.com^$important
+@@||raw.githubusercontent.com^$important
+@@||objects.githubusercontent.com^$important
+@@||reddit.com^$important
+@@||discord.com^$important
+@@||discordapp.com^$important
+@@||discordapp.net^$important
+
+! --- MICROSOFT & OFFICE (Basic Connectivity) ---
+@@||office.com^$important
+@@||office365.com^$important
+@@||ctldl.windowsupdate.com^$important
+@@||msftncsi.com^$important
+
+! --- EXTRAS ---
+@@||api.ipify.org^$important
+@@||letsencrypt.org^$important
+@@||dl.dropbox.com^$important

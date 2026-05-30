@@ -1,81 +1,39 @@
 [Adblock Plus 2.0]
-! Title: My Personal DNS Allowlist (2025)
-! Description: Optimized for Gentoo/Linux, OnePlus 13, Kuro Games & Yostar
-! Note: Blocks OnePlus/MS telemetry (omes-sec, aria) but allows updates/gaming.
-
-! --- GAMING FIXES: Kuro Game (Punishing: Gray Raven / Wuthering Waves) ---
-! Notwendig für Downloads & CDN-Zuweisung via Tencent Cloud
-@@||kurogame.com^$important
-@@||kurogame.xyz^$important
-@@||kurogame.net^$important
-@@||qcloud.com^$important
-@@||myqcloud.com^$important
-@@||qcloudcdn.com^$important
-@@||qcloud-sg-datareceiver.kurogame.xyz^$important
-@@||gdtimg.com^$important
-@@||tpns.tencent.com^$important
-
-! --- GAMING FIXES: Yostar (Azur Lane / Arknights) ---
-! Diese Spiele benötigen Alibaba Cloud für Login/Assets
-@@||aliyuncs.com^$important
-@@||alibabacloud.com^$important
-@@||yo-star.com^$important
-
-! --- DEVICE FIXES: OnePlus / Oppo ---
-! Erlaubt System-Downloads (HeyTapDL), Telemetrie bleibt geblockt.
-@@||heytapdl.com^$important
-@@||heytap.com^$important
-@@||oppomobile.com^$important
-
-! --- INFRASTRUCTURE: Cloud & CDNs ---
-! Wichtig, da viele Blocklisten diese Hoster pauschal sperren
-@@||amazonaws.com^$important
-@@||cloudfront.net^$important
-@@||akamaihd.net^$important
-@@||akamaized.net^$important
-@@||cdn.cloudflare.net^$important
-@@||cdnjs.cloudflare.com^$important
-@@||fastly.net^$important
-@@||b-cdn.net^$important
-
-! --- GOOGLE & ANDROID CORE ---
-@@||android.clients.google.com^$important
-@@||clients1.google.com^$important
-@@||clients2.google.com^$important
-@@||clients3.google.com^$important
-@@||googleapis.com^$important
-@@||gstatic.com^$important
-@@||redirector.googlevideo.com^$important
-@@||manifest.googlevideo.com^$important
-@@||connectivitycheck.gstatic.com^$important
-
-! --- GAMING GENERAL (Xbox, Unity, Epic) ---
-@@||cdp.cloud.unity3d.com^$important
-@@||config.uca.cloud.unity3d.com^$important
-@@||xbox.ipv6.microsoft.com^$important
-@@||title.auth.xboxlive.com^$important
-@@||device.auth.xboxlive.com^$important
-@@||assets.unrealengine.com^$important
-@@||epicgames.com^$important
-
-! --- TOOLS & SOCIAL ---
-@@||whatsapp.net^$important
-@@||whatsapp.com^$important
-@@||github.com^$important
-@@||raw.githubusercontent.com^$important
-@@||objects.githubusercontent.com^$important
-@@||reddit.com^$important
-@@||discord.com^$important
-@@||discordapp.com^$important
-@@||discordapp.net^$important
-
-! --- MICROSOFT & OFFICE (Basic Connectivity) ---
-@@||office.com^$important
-@@||office365.com^$important
-@@||ctldl.windowsupdate.com^$important
-@@||msftncsi.com^$important
-
-! --- EXTRAS ---
-@@||api.ipify.org^$important
-@@||letsencrypt.org^$important
-@@||dl.dropbox.com^$important
+! Title: Personal DNS Allowlist - reactive
+! Maintainer: pschmidt3200
+! Base-Blocklist: hagezi Multi PRO++ (pro-plus-onlydomains) + TIF (tif-onlydomains)
+! Target: Technitium DNS Server Cluster (Primary/Secondary)
+! Last reset: 2026-05-30
+!
+! ============================================================================
+! POLICY - lesen, bevor du etwas hinzufuegst:
+!
+!  - Leerer Startzustand. Eintraege NUR reaktiv: wenn ein Dienst nachweislich
+!    bricht UND der geblockte FQDN im Technitium Query-Log sichtbar ist.
+!
+!  - IMMER der spezifischste FQDN aus dem Log. NIE eine Root-/Hoster-Domain.
+!    Eine Allow-Regel matcht den Namen + ALLE Subdomains. Ein Wildcard-Override
+!    auf einen Hoster (z.B. aliyuncs.com, qcloud.com, *.amazonaws.com) hebelt
+!    die chirurgischen hagezi-Blocks im selben Hoster aus -> mechanisch garantiert.
+!
+!  - Syntax:  @@||sub.domain.tld^     (kein $important, keine Adblock-Modifier;
+!             Technitium verwirft Zeilen mit Modifiern beim Parsen.)
+!
+!  - Telemetrie-/Ad-Sinks bewusst geblockt lassen, auch wenn sie im Log
+!    auftauchen (z.B. *-datareceiver.*, gdtimg.com). Block != Breakage.
+!
+!  - Notfall: blockierten FQDN sofort als Allowed Zone in Technitium setzen
+!    (Hot-Path, greift sofort + clusterweiter Sync). Erst nach Bewaehrung
+!    hier committen (Durable/SSOT, kalter Pfad - kein Notfall-Pfad).
+!
+! ----------------------------------------------------------------------------
+! WATCHLIST beim Cutover (nur beobachten, NICHT vorab freigeben):
+!   Azur Lane             -> Yostar / Alibaba (aliyuncs)
+!   Endfield              -> HYPERGRYPH
+!   Girls' Frontline 1/2  -> MICA / Sunborn
+!   NIKKE                 -> Level Infinite / Tencent
+!   PGR / Wuthering Waves -> Kuro / Tencent Cloud (Dispatcher unter kurogame.*)
+!
+! Beispiel fuer einen kuenftigen Eintrag (auskommentiert lassen):
+! @@||dispatcher.kurogame.com^
+! ============================================================================
